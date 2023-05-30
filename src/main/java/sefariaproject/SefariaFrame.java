@@ -84,7 +84,8 @@ public class SefariaFrame extends JFrame {
         });
 
         chapters.addActionListener(e -> {
-            controller.updateText((String) tanach.getSelectedItem() + " " + chapters.getSelectedItem());
+            controller.updateText((String) tanach.getSelectedItem()
+                    + " " + chapters.getSelectedItem());
         });
     }
 

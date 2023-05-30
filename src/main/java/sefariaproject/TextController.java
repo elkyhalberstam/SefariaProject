@@ -27,25 +27,18 @@ public class TextController {
 
     public void setPerek(Text text) {
         this.text = text;
-        StringBuilder perek1 = new StringBuilder();
+        StringBuilder perek = new StringBuilder();
         for (int i = 0; i < text.text.length; i++) {
             String engPasuk = text.text[i];
             String hebPasuk = text.he[i];
-//           System.out.println(hebPasuk);
             String heCleanPasuk = removeBetweenBrackets(hebPasuk);
             String cleanPasuk = removeBetweenBrackets(engPasuk);
-            perek1.append(i+1 +") ");
-            perek1.append("\n").append(heCleanPasuk).append("\n");
-            perek1.append(cleanPasuk).append("\n");
-//            textArea.append(i+1 +") ");
-//            textArea.append("\n");
-//            textArea.append(heCleanPasuk);
-//            textArea.append("\n");
-//            textArea.append(cleanPasuk);
-//            textArea.append("\n");
+            perek.append(i + 1 + ") ");
+            perek.append("\n").append(heCleanPasuk).append("\n");
+            perek.append(cleanPasuk).append("\n");
         }
 
-        textArea.setText(String.valueOf(perek1));
+        textArea.setText(String.valueOf(perek));
 
     }
 
@@ -57,33 +50,29 @@ public class TextController {
             char c = input.charAt(i);
             if (c == '<' && !withinBrackets) {
                 withinBrackets = true;
-                letter = input.charAt(i+1);
-                if(letter == 'b' || letter == '/')
-                {
-                    while(true)
-                    {
-                        if(input.charAt(i + 1) == '>')
-                        {
+                letter = input.charAt(i + 1);
+                if (letter == 'b' || letter == '/') {
+                    while (true) {
+                        if (input.charAt(i + 1) == '>') {
                             i++;
                             break;
+                        } else {
+                            i++;
                         }
-                        else {i++;}
                     }
                     withinBrackets = false;
 
                 }
-            } else if (c == '<' && withinBrackets && input.charAt(i+2) == letter)
-            {
+            } else if (c == '<' && withinBrackets && input.charAt(i + 2) == letter) {
                 withinBrackets = false;
                 letter = ' ';
-                while(true)
-                {
-                    if(input.charAt(i + 1) == '>')
-                    {
+                while (true) {
+                    if (input.charAt(i + 1) == '>') {
                         i++;
                         break;
+                    } else {
+                        i++;
                     }
-                    else {i++;}
                 }
             } else if (!withinBrackets) {
                 output.append(c);
