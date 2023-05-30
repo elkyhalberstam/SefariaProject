@@ -28,7 +28,7 @@ class TextControllerTest {
         TextController controller = new TextController(service, textArea);
         Text text = new Text();
         text.text = new String[]{"In the beginning"};
-        text.he  = new String[]{"In the beginning"};
+        text.he = new String[]{"In the beginning"};
         Observable<Text> observable = Observable.just(text);
         doReturn(observable).when(service).getSefariaText("gen");
 
@@ -37,8 +37,8 @@ class TextControllerTest {
 
         //then
         verify(service).getSefariaText("gen");
-        verify(textArea).setText("1) \n" +
-                "In the beginning\n" +
-                "In the beginning\n");
+        verify(textArea).setText("1) \n"
+                + "In the beginning\n"
+                + "In the beginning\n");
     }
 }

@@ -11,8 +11,7 @@ import java.awt.*;
 
 public class SefariaFrame extends JFrame {
 
-    public SefariaFrame()
-    {
+    public SefariaFrame() {
         setSize(1000, 500);
         setTitle("Sefaria Project");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,7 +31,7 @@ public class SefariaFrame extends JFrame {
         textArea.setMargin(insets);
         textArea.setFont(new Font("Monaco", Font.PLAIN, 12));
         textArea.setSize(200, 200);
-        JScrollPane scroll = new JScrollPane (textArea,
+        JScrollPane scroll = new JScrollPane(textArea,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
 
@@ -44,10 +43,10 @@ public class SefariaFrame extends JFrame {
 
         String[] titles = new String[]{"Genesis", "Exodus", "Leviticus",
                 "Numbers", "Deuteronomy", "Joshua", "Judges",
-                "I Samuel", "II Samuel", "I Kings", "II Kings" , "Isaiah",
+                "I Samuel", "II Samuel", "I Kings", "II Kings", "Isaiah",
                 "Jeremiah", "Ezekiel", "Hosea", "Joel", "Amos",
                 "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah",
-                "Haggai" , "Zechariah", "Malachi", "Psalms", "Proverbs",
+                "Haggai", "Zechariah", "Malachi", "Psalms", "Proverbs",
                 "Job", "Song of Songs", "Ruth", "Lamentations", "Ecclesiastes",
                 "Esther", "Daniel", "Ezra", "Nehemiah", "I Chronicles", "II Chronicles"};
 
@@ -75,10 +74,9 @@ public class SefariaFrame extends JFrame {
 
         tanach.addActionListener(e -> {
             chapters.removeAllItems();
-            int[] numbers  = new int[chaptersList[tanach.getSelectedIndex()]];
-            for(int i = 0; i<numbers.length; i++)
-            {
-                numbers[i] = i+1;
+            int[] numbers = new int[chaptersList[tanach.getSelectedIndex()]];
+            for (int i = 0; i < numbers.length; i++) {
+                numbers[i] = i + 1;
                 chapters.addItem(i + 1);
             }
         });
