@@ -2,7 +2,7 @@ package sefariaproject.index;
 
 import java.util.List;
 
-public class IndexList{
+public class IndexList {
     public List<Content1> contents;
     private Long order;
     private Boolean enComplete;

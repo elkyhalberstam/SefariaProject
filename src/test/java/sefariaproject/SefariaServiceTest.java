@@ -48,12 +48,9 @@ class SefariaServiceTest {
 
         //when
         Text text = service.getSefariaText("gen").blockingFirst();
-        //System.out.println(list.get(3).contents[0].contents[0].title);
-        //System.out.println(list.get(3).contents[0].contents[1].enShortDesc);
 
         //then
         assertNotNull(text);
         assertNotNull(text.ref);
-        //assertNotNull(list.get(3).contents[0].contents[1].enShortDesc);
     }
 }

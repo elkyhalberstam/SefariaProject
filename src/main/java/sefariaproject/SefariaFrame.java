@@ -13,8 +13,8 @@ public class SefariaFrame extends JFrame {
 
     public SefariaFrame()
     {
-        setSize(800, 500);
-        setTitle("Current Weather");
+        setSize(1000, 500);
+        setTitle("Sefaria Project");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -25,13 +25,13 @@ public class SefariaFrame extends JFrame {
 
         SefariaService service = retrofit.create(SefariaService.class);
 
-        Insets insets = new Insets(10,10,4,10);
+        Insets insets = new Insets(15, 15, 10, 15);
 
-        JTextArea textArea = new JTextArea("output");
+        JTextArea textArea = new JTextArea();
         textArea.setLineWrap(true);
         textArea.setMargin(insets);
-        textArea.setFont(new Font("Monaco", Font.PLAIN, 15));
-        textArea.setSize(200,200);
+        textArea.setFont(new Font("Monaco", Font.PLAIN, 12));
+        textArea.setSize(200, 200);
         JScrollPane scroll = new JScrollPane (textArea,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
@@ -79,14 +79,12 @@ public class SefariaFrame extends JFrame {
             for(int i = 0; i<numbers.length; i++)
             {
                 numbers[i] = i+1;
-                chapters.addItem(i+1);
+                chapters.addItem(i + 1);
             }
         });
 
         chapters.addActionListener(e -> {
-            controller.updateText((String) tanach.getSelectedItem() + " " +chapters.getSelectedItem());
-            //String perek = controller.getPerek();
-            //textArea.setText(perek);
+            controller.updateText((String) tanach.getSelectedItem() + " " + chapters.getSelectedItem());
         });
     }
 
