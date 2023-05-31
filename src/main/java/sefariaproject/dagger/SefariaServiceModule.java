@@ -27,9 +27,9 @@ public class SefariaServiceModule {
 
 
     @Provides
-        @Named("textArea")
-        @Singleton
-        public JTextArea providesTextArea() {
+    @Named("textArea")
+    @Singleton
+    public JTextArea providesTextArea() {
             return new JTextArea();
-        }
+    }
 }

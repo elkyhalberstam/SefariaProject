@@ -13,7 +13,5 @@ public class Main {
         SefariaFrame frame = component.providesSefariaFrame();
         frame.setVisible(true);
 
-//        SefariaFrame frame = new SefariaFrame();
-//        frame.setVisible(true);
     }
 }
