@@ -1,5 +1,6 @@
 package sefariaproject;
 
+import hu.akarnokd.rxjava3.swing.SwingSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import sefariaproject.text.Text;
 
@@ -20,7 +21,7 @@ public class TextController {
     public void updateText(String textName) {
         service.getSefariaText(textName)
                 .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.newThread())
+                .observeOn(SwingSchedulers.edt())
                 .subscribe(this::setPerek,
                         Throwable::printStackTrace);
     }
