@@ -5,12 +5,24 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class SefariaFrame extends JFrame {
 
-    public SefariaFrame() {
+    JTextArea textArea;
+    TextController controller;
+
+
+    @Inject
+    public SefariaFrame(TextController controller,
+                        @Named("textArea") JTextArea textArea) {
+
+        this.textArea = textArea;
+        this.controller = controller;
         setSize(1000, 500);
         setTitle("Sefaria Project");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -25,7 +37,6 @@ public class SefariaFrame extends JFrame {
 
         Insets insets = new Insets(15, 15, 10, 15);
 
-        JTextArea textArea = new JTextArea();
         textArea.setLineWrap(true);
         textArea.setMargin(insets);
         textArea.setFont(new Font("Monaco", Font.PLAIN, 12));
@@ -33,8 +44,6 @@ public class SefariaFrame extends JFrame {
         JScrollPane scroll = new JScrollPane(textArea,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-
-        TextController controller = new TextController(service, textArea);
 
         JPanel enterTextPanel = new JPanel();
         enterTextPanel.setLayout(new FlowLayout());
