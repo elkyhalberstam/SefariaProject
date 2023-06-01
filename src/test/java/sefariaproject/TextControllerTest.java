@@ -1,5 +1,6 @@
 package sefariaproject;
 
+import hu.akarnokd.rxjava3.swing.RxSwingPlugins;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.plugins.RxJavaPlugins;
@@ -17,8 +18,7 @@ class TextControllerTest {
     static {
         // This makes it so that our service returns immediately
         RxJavaPlugins.setIoSchedulerHandler(scheduler -> Schedulers.trampoline());
-        RxJavaPlugins.setNewThreadSchedulerHandler(scheduler -> Schedulers.trampoline());
-    }
+        RxSwingPlugins.setOnEdtScheduler(scheduler -> Schedulers.trampoline());    }
 
     @Test
     void updateText() {

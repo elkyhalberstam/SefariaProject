@@ -4,6 +4,8 @@ import hu.akarnokd.rxjava3.swing.SwingSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import sefariaproject.text.Text;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,7 +15,8 @@ public class TextController {
     private Text text;
     private SefariaService service;
 
-    public TextController(SefariaService service, JTextArea textArea) {
+    @Inject
+    public TextController(SefariaService service, @Named("textArea") JTextArea textArea) {
         this.textArea = textArea;
         this.service = service;
     }
